@@ -4,6 +4,16 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+const corsOptions = {
+    origin: 'https://szyfik.github.io', // tutaj wpisz adres swojego frontendu
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type'],
+  };
+  
+  app.use(cors(corsOptions));
+  // Obsługa preflight (OPTIONS) dla wszystkich tras:
+  app.options('*', cors(corsOptions));
+  
 app.use(cors()); // Pozwala na żądania z dowolnej domeny
 app.use(express.json()); // Obsługa JSON w body
 
@@ -39,3 +49,5 @@ app.post('/contact', (req, res) => {
     });
   });
     
+  const PORT = process.env.PORT || 3000;
+app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
