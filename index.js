@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 
 const corsOptions = {
-  origin: 'https://szyfik.github.io', // Adres Twojego frontendu
+  origin: 'https://szykulskifilip.me/', // Adres Twojego frontendu
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
 };
